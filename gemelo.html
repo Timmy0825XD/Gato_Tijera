@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemelo Digital · Gato Tijera · Fase III</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/gemelo.css?v=3">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 9-7 9-7-9z"/><path d="M5 12h14"/></svg>
+  <h1>Gemelo Digital · Gato Tijera<small>Modelo 3D + gráfica sincronizada · Euler implícito 0.01 s</small></h1>
+  <div class="sp"></div>
+  <div class="status"><span class="dot"></span><span id="syncState">sincronizado · 60.0 s @ 0.01 s</span></div>
+  <a class="btn small" href="index.html">Volver a slides</a>
+  <button class="btn small primary" id="btnExport">Descargar CSV</button>
+</header>
+
+<div class="layout">
+
+  <!-- CONTROLES -->
+  <aside class="card ctrl">
+    <h2>Control paramétrico <span class="pill ok" style="float:right;letter-spacing:.04em">EN VIVO</span></h2>
+    <div class="sld"><label>Masa carga M <b id="vM">400 kg</b></label><input type="range" id="sM" min="100" max="800" step="10" value="400"></div>
+    <div class="sld"><label>Longitud barra L <b id="vL">0.20 m</b></label><input type="range" id="sL" min="0.15" max="0.25" step="0.005" value="0.20"></div>
+    <div class="sld"><label>Amortiguamiento b <b id="vb">2.00 N·m·s/rad</b></label><input type="range" id="sb" min="0.5" max="4" step="0.05" value="2"></div>
+    <div class="sld"><label>Torque manual τ₀ <b id="vT">22.0 N·m</b></label><input type="range" id="sT" min="0" max="35" step="0.5" value="22"></div>
+    <div class="sld"><label>Paso tornillo p <b id="vp">3.0 mm</b></label><input type="range" id="sp" min="1" max="5" step="0.1" value="3"></div>
+    <div class="sld"><label>Fricción μ <b id="vmu">0.15</b></label><input type="range" id="smu" min="0.05" max="0.30" step="0.005" value="0.15"></div>
+    <div class="row2">
+      <button class="btn small" id="btnReset">Restablecer</button>
+      <button class="btn small" id="btnAuto">Demo auto</button>
+    </div>
+    <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+    <h2>Contraste Simulink (.csv)</h2>
+    <p class="note">Compara contra tu CSV de Simulink: curva ocre + RMSE por canal.</p>
+    <div class="filerow">
+      <label class="btn small" for="csvFile">Examinar…</label>
+      <span class="note" id="csvName">Ningún archivo seleccionado</span>
+      <input type="file" id="csvFile" accept=".csv" hidden>
+    </div>
+    <div class="row2" style="margin-top:8px">
+      <button class="btn small" id="btnSample">Usar CSV incluido</button>
+      <button class="btn small" id="btnClearCsv">Quitar</button>
+    </div>
+    <label class="note" style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" id="chkCsv" checked style="accent-color:var(--warm)"> mostrar comparativa Simulink</label>
+    <p class="note" id="csvInfo">Sin archivo cargado. La simulación propia (línea sólida) replica el .slx con Euler implícito dt = 0.01 s.</p>
+  </aside>
+
+  <!-- VISTA 3D -->
+  <section class="card view">
+    <h2>Modelo 3D sincronizado <span class="tag note" id="mechTag">arrastra para orbitar · rueda = zoom</span></h2>
+    <div id="viewport"><div id="three"></div>
+      <div class="hud"><span class="chip">t = <b id="hudT">0.00 s</b></span><span class="chip">θ = <b id="hudTh">15.0°</b></span><span class="chip">h = <b id="hudH">0.104 m</b></span></div>
+    </div>
+    <div class="transport">
+      <button class="btn play" id="btnPlay">Pausar</button>
+      <button class="btn" id="btnRestart">Reiniciar</button>
+      <input type="range" id="scrub" min="0" max="60" step="0.01" value="0">
+      <span class="chip" id="clock">0.00 / 60.0 s</span>
+      <label class="note">vel <select id="speed" style="width:70px;background:#0A1124;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:4px"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+    </div>
+  </section>
+
+  <!-- LECTURAS -->
+  <aside class="card live">
+    <h2>Lectura en vivo</h2>
+    <div class="livegrid">
+      <div class="kv hot"><small>t tiempo</small><b id="kT">0.00 s</b></div>
+      <div class="kv hot"><small>τᵤ torque aplicado</small><b id="kTau">0.0 N·m</b></div>
+      <div class="kv"><small>φ giro tornillo</small><b id="kPhi">0.0 rad</b></div>
+      <div class="kv"><small>ω velocidad tornillo</small><b id="kW">0.00 rad/s</b></div>
+      <div class="kv"><small>θ ángulo barras</small><b id="kTh">15.00°</b></div>
+      <div class="kv hot"><small>h altura cabeza</small><b id="kH">0.104 m</b></div>
+      <div class="kv"><small>v velocidad subida</small><b id="kV">0.0 mm/s</b></div>
+      <div class="kv warn"><small>T tracción tornillo</small><b id="kTT">14644 N</b></div>
+      <div class="kv"><small>τc resistente</small><b id="kTc">18.93 N·m</b></div>
+      <div class="kv"><small>vueltas manivela</small><b id="kRev">0.0</b></div>
+      <div class="kv"><small>balanceo carrocería</small><b id="kRoll">0.0°</b></div>
+    </div>
+  </aside>
+
+  <!-- GRÁFICAS -->
+  <section class="card charts">
+    <h2>Gráficas sincronizadas <span class="tag note">sólida = gemelo · ocre = Simulink</span></h2>
+    <div class="chartgrid">
+      <div class="chart"><h3>Altura · h <span class="u">[m]</span></h3><canvas id="cH"></canvas></div>
+      <div class="chart"><h3>Velocidad tornillo · ω <span class="u">[rad/s]</span></h3><canvas id="cW"></canvas></div>
+      <div class="chart"><h3>Tracción · T <span class="u">[N]</span></h3><canvas id="cT"></canvas></div>
+      <div class="chart"><h3>Torques · τ<sub>u</sub> / τ<sub>c</sub> <span class="u">[N·m]</span></h3><canvas id="cTau"></canvas></div>
+    </div>
+  </section>
+
+  <!-- VALIDACIÓN -->
+  <aside class="card valid">
+    <h2>Validación</h2>
+    <table><tr><th>Canal</th><th>RMSE</th><th>Estado</th></tr><tbody id="rmseBody">
+      <tr><td>h [m]</td><td>—</td><td><span class="pill warn">sin CSV</span></td></tr>
+      <tr><td>ω [rad/s]</td><td>—</td><td><span class="pill warn">sin CSV</span></td></tr>
+      <tr><td>T [N]</td><td>—</td><td><span class="pill warn">sin CSV</span></td></tr>
+      <tr><td>φ [rad]</td><td>—</td><td><span class="pill warn">sin CSV</span></td></tr>
+    </tbody></table>
+    <details class="note">
+      <summary>Modelo y solver</summary>
+      <p>Simulink usa <code>ode15s</code> (implícito, paso variable, MaxStep 0.01). El gemelo integra con Euler implícito a 0.01 s — estable ante λ = −6666 s⁻¹ — por eso las curvas coinciden.</p>
+      <p>Rigidez: τ<sub>mec</sub> = J/b = 0.15 ms frente a 40 s de subida (≈400 000×). Topes: φ ∈ [0, <span id="phiMaxLbl">455</span>] rad · Autobloqueo: ω ≥ 0.</p>
+    </details>
+  </aside>
+
+</div>
+
+<script src="js/physics.js?v=3"></script>
+<script src="js/gemelo.js?v=8"></script>
+</body>
+</html>

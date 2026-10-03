@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gato Tijera · Como Máquina Compleja · UPC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/slides.css?v=3">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 9-7 9-7-9z"/><path d="M5 12h14"/></svg>
+    <div><div class="t">GATO TIJERA</div><div class="s">Modelado y Simulación · UPC</div></div>
+  </div>
+  <div class="track"><i id="bar"></i></div>
+  <div class="count" id="count">1 / 15</div>
+  <a class="btn solid" href="gemelo.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>Gemelo Digital</a>
+</header>
+
+<main class="deck" id="deck">
+
+<!-- 1 · PORTADA -->
+<section class="slide active"><div class="sheet">
+  <h1 class="cover-title rise">Gato tijera como máquina compleja</h1>
+  <p class="cover-sub rise">Componentes, analogía y modelo matemático del gato del kit de carretera: la máquina que levanta <b>400 kg con una mano</b>.</p>
+  <div class="cover-cta rise">
+    <a class="btn solid" href="gemelo.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>Abrir Gemelo Digital</a>
+    <button class="btn" onclick="next()">Empezar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="cover-meta rise"><span>Universidad Popular del Cesar</span><span>Josheph Martinez · Oscar Duque</span><span>Doc. Andrés Perpiñán Reyes</span></div>
+</div></section>
+
+<!-- 2 · MÁQUINA COMPLEJA -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">¿Qué es una <span class="q">máquina compleja?</span></h2>
+  <p class="big rise">Sistema formado por <b>dos o más máquinas simples conectadas</b>. Trabajan de forma coordinada para lograr lo que por separado no podrían.</p>
+  <div class="rule rise"></div>
+  <p class="sub rise">La salida de una máquina es <b>la entrada de la siguiente</b>. Su ventaja total es el producto de las ventajas parciales.</p>
+  <div class="examples rise"><span>RELOJ</span><span>BICICLETA</span><span>GRÚA</span><span class="hot">GATO TIJERA</span></div>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">02</span></div>
+</div></section>
+
+<!-- 3 · QUÉ ES -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">¿Qué es un <span class="q">gato tijera?</span></h2>
+  <p class="big rise">El del kit de carretera. Con <b>una sola mano sobre una manivela</b> levanta una fracción considerable del carro: algo imposible a pulso.</p>
+  <div class="rule rise"></div>
+  <p class="sub rise">El secreto no está en una pieza, sino en <b>encadenar tres transformaciones</b>:</p>
+  <p class="flowline rise">GIRO DE LA MANIVELA <span class="a">→</span> AVANCE DEL TORNILLO <span class="a">→</span> ELEVACIÓN DE LA CARGA</p>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">03</span></div>
+</div></section>
+
+<!-- 4 · POR QUÉ -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">¿Por qué es una <span class="q">máquina compleja?</span></h2>
+  <p class="sub rise">Porque combina <b>tres etapas en serie</b>: la salida de una alimenta a la siguiente. Cada etapa multiplica la fuerza y, a cambio, pide más recorrido.</p>
+  <div class="chain rise">
+    <div class="link"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="18" r="2.4"/><path d="M6 18L18 8"/><circle cx="18" cy="8" r="2.4"/></svg></div><h3>MANIVELA</h3><p>Palanca de 30 cm donde la mano aplica el esfuerzo.</p><div class="fx">× palanca</div></div>
+    <div class="link"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round"><path d="M3 9v6M3 12h18"/><path d="M8 9l2.5 6M12.5 9l2.5 6M17 9l2.5 6"/></svg></div><h3>TORNILLO</h3><p>Plano inclinado enrollado: avanza 3 mm por vuelta.</p><div class="fx">× tornillo</div></div>
+    <div class="link"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 9-7 9-7-9z"/><path d="M5 12h14"/></svg></div><h3>ROMBO</h3><p>Cuatro barras de 20 cm que abren y cierran.</p><div class="fx">× rombo</div></div>
+  </div>
+  <p class="sub rise">Subir <span class="key">26 cm cuesta 72 vueltas</span>: lo ganado en fuerza se paga en desplazamiento.</p>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">04</span></div>
+</div></section>
+
+<!-- 5 · ELEMENTOS -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Elementos y <span class="q">subsistemas</span></h2>
+  <div class="parts rise">
+    <div class="part"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="18" r="2.4"/><path d="M6 18L18 8"/><circle cx="18" cy="8" r="2.4"/></svg></div><h3>MANIVELA</h3><p>Recibe el esfuerzo de la mano.</p></div>
+    <div class="part"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round"><path d="M3 9v6M3 12h18"/><path d="M8 9l2.5 6M12.5 9l2.5 6M17 9l2.5 6"/></svg></div><h3>TORNILLO TR12×3</h3><p>Convierte el giro en tracción.</p></div>
+    <div class="part"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div><h3>APOYO</h3><p>Deja girar al tornillo sin avanzar.</p></div>
+    <div class="part"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><h3>TUERCA</h3><p>Se desplaza y tira del vértice.</p></div>
+    <div class="part"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 9-7 9-7-9z"/><path d="M5 12h14"/></svg></div><h3>ROMBO</h3><p>Cuatro barras iguales de 20 cm.</p></div>
+    <div class="part"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4FD8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16"/><path d="M7 17l5-9 5 9"/></svg></div><h3>BASE Y CABEZA</h3><p>Suelo, punto de carga y 400 kg.</p></div>
+  </div>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">05</span></div>
+</div></section>
+
+<!-- 6 · ANALOGÍA -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Analogía con <span class="q">ingeniería de sistemas</span></h2>
+  <p class="sub rise">La lógica del gato tiene un paralelo directo: <b>concentrar recurso para amplificar capacidad, pagando un costo</b>. Es la idea del escalado vertical.</p>
+  <div class="cols rise">
+    <div class="col"><h3><span class="dot"></span>EN EL GATO</h3><p>Unos 60 N de la mano entran por la manivela; el tornillo y el rombo los convierten en <b>14.6 kN de tracción</b> que levantan 400 kg.</p><p>El costo: <b>72 vueltas</b> y el 63 % de la energía en calor. Y hay un techo: entre 15° y 65°; fuera, topes.</p></div>
+    <div class="col"><h3><span class="dot"></span>EN SISTEMAS</h3><p>Una petición entra a un servidor; aumentarle <b>RAM y CPU</b> le permite atender más carga con el mismo nodo.</p><p>El costo: mayor precio, más consumo y <b>límite físico</b>. Pasado cierto punto ya no escala, por más hardware que se añada.</p></div>
+  </div>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">06</span></div>
+</div></section>
+
+<!-- 7 · MODELO -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Modelo matemático: <span class="q">4 ecuaciones</span></h2>
+  <p class="sub rise">Cada ecuación representa <b>una transformación de la cadena física</b>: del giro que pone la mano a la fuerza que levanta el carro.</p>
+  <div class="chain rise">
+    <div class="link"><h3>EC. 1 · GIRO</h3><p>Del giro del tornillo al ángulo del rombo.</p><div class="fx">cos θ = cos θ₀ − Kc·φ</div></div>
+    <div class="link"><h3>EC. 2 · ALTURA</h3><p>Del ángulo a la altura de la cabeza.</p><div class="fx">h = 2L·sin θ</div></div>
+    <div class="link"><h3>EC. 3 · FUERZA</h3><p>De la carga a la tracción del tornillo.</p><div class="fx">T = W / tan θ</div></div>
+    <div class="link"><h3>EC. 4 · GIRO</h3><p>Del torque de la mano al movimiento.</p><div class="fx">J·dω/dt = τ − bω − τc</div></div>
+  </div>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">07</span></div>
+</div></section>
+
+<!-- 8 · EC 1 -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Ecuación 1 · <span class="q">del giro al ángulo</span></h2>
+  <div class="eqbox rise"><div class="eq">cos θ = cos θ₀ <span class="hl">− Kc · φ</span></div>
+    <div class="terms">
+      <div class="term"><b>φ</b>giro del tornillo: cuánto ha girado desde la posición cerrada. <span class="u">0 a 455 rad</span></div>
+      <div class="term"><b>θ</b>ángulo de cada barra con la horizontal: basta uno para ubicar todo el rombo. <span class="u">15° a 65°</span></div>
+      <div class="term"><b>Kc</b>cuánto baja el coseno por cada radián: sale del paso entre el perímetro del rombo. <span class="u">Kc = p / 4πL</span></div>
+      <div class="term"><b>p</b>paso del tornillo: lo que se acorta el rombo por cada vuelta completa. <span class="u">3 mm</span></div>
+    </div>
+  </div>
+  <p class="sub rise">Cada radián que gira el tornillo <b>cierra un poco el rombo</b>: el ángulo se lee directo del giro, sin variables nuevas.</p>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">08</span></div>
+</div></section>
+
+<!-- 9 · EC 2 -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Ecuación 2 · <span class="q">del ángulo a la altura</span></h2>
+  <div class="eqbox rise"><div class="eq">h = <span class="hl">2L · sin θ</span></div>
+    <div class="terms">
+      <div class="term"><b>h</b>altura de la cabeza: lo que sube el punto que carga el carro. <span class="u">0.104 a 0.363 m</span></div>
+      <div class="term"><b>L</b>lado de cada barra del rombo, rígidas e iguales. <span class="u">0.20 m</span></div>
+      <div class="term"><b>θ</b>el mismo ángulo de la ecuación 1: al abrirse el rombo, el seno crece y la cabeza sube. <span class="u">15° a 65°</span></div>
+      <div class="term"><b>2</b>el rombo tiene dos pisos de barras: la altura total es el doble del alto de una. <span class="u">adimensional</span></div>
+    </div>
+  </div>
+  <p class="sub rise">Geometría pura: con el gato cerrado la cabeza está a <b>10 cm</b>; abierto, a <b>36 cm</b>.</p>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">09</span></div>
+</div></section>
+
+<!-- 10 · EC 3 -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Ecuación 3 · <span class="q">de la carga a la tracción</span></h2>
+  <div class="eqbox rise"><div class="eq">T = <span class="hl">W / tan θ</span></div>
+    <div class="terms">
+      <div class="term"><b>T</b>tracción del tornillo: la fuerza que tira de los vértices laterales hacia el centro. <span class="u">14.6 a 1.8 kN</span></div>
+      <div class="term"><b>W</b>peso que carga el gato: un cuarto de un carro de 1600 kg. <span class="u">3924 N</span></div>
+      <div class="term"><b>θ</b>con el gato cerrado la tangente es pequeña y el tornillo tira <b>3.73 veces el peso</b>; al abrirse, se aligera. <span class="u">15° a 65°</span></div>
+      <div class="term"><b>equilibrio</b>sale de equilibrar cada vértice: en vertical sostiene W/2 por lado, en horizontal pide T. <span class="u">estático</span></div>
+    </div>
+  </div>
+  <p class="sub rise">Es la relación clave: aquí nace la multiplicación de fuerza del rombo… y su costo.</p>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">10</span></div>
+</div></section>
+
+<!-- 11 · EC 4 -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Ecuación 4 · <span class="q">la mano contra la carga</span></h2>
+  <div class="eqbox rise"><div class="eq">J·dω/dt = <span class="hl">τ<sub>u</sub> − b·ω − τ<sub>c</sub></span></div>
+    <div class="terms">
+      <div class="term"><b>τ<sub>u</sub></b>torque de la mano en la manivela: la única entrada del sistema. <span class="u">22 N·m</span></div>
+      <div class="term"><b>τ<sub>c</sub></b>torque resistente de la carga con su fricción: 18.9 N·m cerrado, 2.4 N·m abierto. <span class="u">τc = c·T</span></div>
+      <div class="term"><b>J</b>inercia de todo lo que gira o se mueve, vista desde el eje del tornillo. <span class="u">3×10⁻⁴ kg·m²</span></div>
+      <div class="term"><b>b·ω</b>amortiguamiento: representa que la persona no deja que la manivela se acelere sin límite. <span class="u">b = 2.0</span></div>
+    </div>
+  </div>
+  <p class="sub rise">Segunda ley de Newton para rotación sobre el eje del tornillo. Si la mano pone menos de <b>18.9 N·m, el gato ni arranca</b>.</p>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">11</span></div>
+</div></section>
+
+<!-- 12 · SIMULINK -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Modelación en <span class="q">Simulink</span></h2>
+  <p class="sub rise">Las 4 ecuaciones, armadas con bloques básicos: la fila superior resuelve el giro, a la derecha se calcula el ángulo y abajo salen altura, velocidad y tracción.</p>
+  <div class="diagram rise">
+    <div class="drow">
+      <div class="dnode">PULSO τ<sub>u</sub><small>22 N·m · 1 a 41 s</small></div><span class="darrow">→</span>
+      <div class="dnode">Σ<small>suma de torques</small></div><span class="darrow">→</span>
+      <div class="dnode">1/J<small>ganancia inercia</small></div><span class="darrow">→</span>
+      <div class="dnode">∫ ω<small>límite ≥ 0</small></div><span class="darrow">→</span>
+      <div class="dnode">∫ φ<small>topes 0–455 rad</small></div><span class="darrow">→</span>
+      <div class="dnode">θ = acos<small>cos θ₀ − Kc·φ</small></div><span class="darrow">→</span>
+      <div class="dnode out">h · v · T<small>Mux → CSV</small></div>
+    </div>
+    <div class="dfb"><span><b>−b·ω</b> vuelve a la suma: el freno de la mano</span><span><b>−τc = c·T</b> vuelve a la suma: la carga se aligera al subir</span></div>
+  </div>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">12</span></div>
+</div></section>
+
+<!-- 13 · RESULTADO 1 -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Resultado 1 · <span class="q">la subida</span></h2>
+  <p class="sub rise">Con 22 N·m entre t = 1 y t = 41 s. Registros reales de la simulación.</p>
+  <div class="scopes rise">
+    <div class="scope"><h3>h(t) · ALTURA <span class="u">[m]</span></h3>
+      <svg viewBox="0 0 600 220"><line x1="8" y1="212" x2="592" y2="212" stroke="#22345E"/><line x1="407" y1="8" x2="407" y2="212" stroke="#FFB224" stroke-dasharray="4 4" opacity=".7"/><text x="411" y="22" fill="#FFB224" font-size="12">se suelta</text><text x="8" y="206" fill="#6E7FA6" font-size="12">0 s</text><text x="570" y="206" fill="#6E7FA6" font-size="12">60 s</text><text x="8" y="20" fill="#6E7FA6" font-size="12">0.296 m</text><polyline points="8.0,207.0 11.9,207.0 15.8,207.0 19.7,206.4 23.7,205.2 27.6,204.0 31.5,202.7 35.4,201.3 39.3,199.8 43.2,198.4 47.1,196.8 51.0,195.2 55.0,193.5 58.9,191.7 62.8,190.0 66.8,188.1 70.7,186.2 74.6,184.3 78.5,182.3 82.5,180.2 86.4,178.2 90.2,176.1 94.1,174.0 98.1,171.8 102.0,169.7 105.9,167.5 109.8,165.3 113.8,163.0 117.7,160.7 121.6,158.5 125.6,156.2 129.5,153.9 133.4,151.6 137.3,149.3 141.2,147.0 145.1,144.7 149.0,142.4 152.9,140.1 156.9,137.7 160.8,135.4 164.7,133.2 168.7,130.8 172.6,128.5 176.5,126.3 180.4,124.0 184.4,121.7 188.3,119.4 192.2,117.2 196.0,115.0 200.0,112.7 203.9,110.5 207.8,108.3 211.7,106.1 215.7,103.8 219.6,101.7 223.5,99.5 227.5,97.3 231.4,95.2 235.3,93.1 239.2,91.0 243.2,88.8 247.1,86.8 250.9,84.7 254.8,82.6 258.8,80.5 262.7,78.5 266.6,76.5 270.5,74.5 274.5,72.5 278.4,70.5 282.3,68.6 286.3,66.6 290.2,64.6 294.1,62.7 298.0,60.8 301.9,58.9 305.8,57.0 309.7,55.2 313.6,53.3 317.6,51.4 321.5,49.6 325.4,47.8 329.4,46.0 333.3,44.2 337.2,42.4 341.1,40.7 345.1,38.9 349.0,37.2 352.9,35.5 356.7,33.8 360.7,32.1 364.6,30.4 368.5,28.7 372.4,27.1 376.4,25.4 380.3,23.8 384.2,22.2 388.2,20.6 392.1,19.0 396.0,17.4 399.9,15.9 403.9,14.3 407.7,13.0 411.6,13.0 415.5,13.0 419.5,13.0 423.4,13.0 427.3,13.0 431.2,13.0 435.2,13.0 439.1,13.0 443.0,13.0 447.0,13.0 450.9,13.0 454.8,13.0 458.7,13.0 462.6,13.0 466.5,13.0 470.4,13.0 474.3,13.0 478.3,13.0 482.2,13.0 486.1,13.0 490.1,13.0 494.0,13.0 497.9,13.0 501.8,13.0 505.8,13.0 509.7,13.0 513.5,13.0 517.4,13.0 521.4,13.0 525.3,13.0 529.2,13.0 533.1,13.0 537.1,13.0 541.0,13.0 544.9,13.0 548.9,13.0 552.8,13.0 556.7,13.0 560.6,13.0 564.6,13.0 568.4,13.0 572.3,13.0 576.2,13.0 580.2,13.0 584.1,13.0 588.0,13.0 592.0,13.0" fill="none" stroke="#4FD8FF" stroke-width="2"/></svg>
+      <p class="cap">De <b>0.104 a 0.296 m</b> y se queda fija: al soltar, el tornillo se autobloquea.</p></div>
+    <div class="scope"><h3>ω(t) · VELOCIDAD <span class="u">[rad/s]</span></h3>
+      <svg viewBox="0 0 600 220"><line x1="8" y1="212" x2="592" y2="212" stroke="#22345E"/><line x1="18" y1="8" x2="18" y2="212" stroke="#FFB224" stroke-dasharray="4 4" opacity=".7"/><text x="22" y="22" fill="#FFB224" font-size="12">arranca</text><text x="8" y="206" fill="#6E7FA6" font-size="12">0 s</text><text x="570" y="206" fill="#6E7FA6" font-size="12">60 s</text><text x="8" y="20" fill="#6E7FA6" font-size="12">8.7 rad/s</text><polyline points="8.0,207.5 11.9,207.5 15.8,207.5 19.7,171.8 23.7,169.2 27.6,166.6 31.5,164.0 35.4,161.3 39.3,158.4 43.2,155.6 47.1,152.7 51.0,149.8 55.0,146.8 58.9,143.8 62.8,140.9 66.8,137.8 70.7,134.9 74.6,131.9 78.5,129.0 82.5,126.1 86.4,123.2 90.2,120.4 94.1,117.6 98.1,114.8 102.0,112.1 105.9,109.5 109.8,106.9 113.8,104.3 117.7,101.8 121.6,99.4 125.6,96.9 129.5,94.6 133.4,92.4 137.3,90.1 141.2,87.9 145.1,85.8 149.0,83.7 152.9,81.7 156.9,79.7 160.8,77.8 164.7,75.9 168.7,74.1 172.6,72.3 176.5,70.5 180.4,68.9 184.4,67.2 188.3,65.5 192.2,64.0 196.0,62.4 200.0,60.9 203.9,59.4 207.8,58.0 211.7,56.6 215.7,55.2 219.6,53.8 223.5,52.5 227.5,51.2 231.4,50.0 235.3,48.7 239.2,47.5 243.2,46.3 247.1,45.2 250.9,44.1 254.8,43.0 258.8,41.9 262.7,40.8 266.6,39.8 270.5,38.7 274.5,37.7 278.4,36.7 282.3,35.8 286.3,34.8 290.2,33.9 294.1,33.0 298.0,32.1 301.9,31.2 305.8,30.3 309.7,29.5 313.6,28.6 317.6,27.8 321.5,27.0 325.4,26.2 329.4,25.4 333.3,24.6 337.2,23.9 341.1,23.1 345.1,22.4 349.0,21.7 352.9,20.9 356.7,20.2 360.7,19.5 364.6,18.9 368.5,18.2 372.4,17.5 376.4,16.9 380.3,16.2 384.2,15.6 388.2,14.9 392.1,14.3 396.0,13.7 399.9,13.1 403.9,12.5 407.7,207.5 411.6,207.5 415.5,207.5 419.5,207.5 423.4,207.5 427.3,207.5 431.2,207.5 435.2,207.5 439.1,207.5 443.0,207.5 447.0,207.5 450.9,207.5 454.8,207.5 458.7,207.5 462.6,207.5 466.5,207.5 470.4,207.5 474.3,207.5 478.3,207.5 482.2,207.5 486.1,207.5 490.1,207.5 494.0,207.5 497.9,207.5 501.8,207.5 505.8,207.5 509.7,207.5 513.5,207.5 517.4,207.5 521.4,207.5 525.3,207.5 529.2,207.5 533.1,207.5 537.1,207.5 541.0,207.5 544.9,207.5 548.9,207.5 552.8,207.5 556.7,207.5 560.6,207.5 564.6,207.5 568.4,207.5 572.3,207.5 576.2,207.5 580.2,207.5 584.1,207.5 588.0,207.5 592.0,207.5" fill="none" stroke="#4FD8FF" stroke-width="2"/></svg>
+      <p class="cap">Crece de <b>1.6 a 8.6 rad/s</b>: la carga se aligera al abrirse. Al soltar, cae a cero.</p></div>
+  </div>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">13</span></div>
+</div></section>
+
+<!-- 14 · RESULTADO 2 -->
+<section class="slide"><div class="sheet">
+  <h2 class="rise">Resultado 2 · <span class="q">a mano y simulado coinciden</span></h2>
+  <p class="sub rise">En t = 20 s se calculó todo a mano con las ecuaciones y se comparó con la simulación:</p>
+  <table class="cmp rise">
+    <tr><th>MAGNITUD</th><th>A MANO</th><th>SIMULACIÓN</th><th></th></tr>
+    <tr><td>Torque resistente τc</td><td>8.87 N·m</td><td>8.87 N·m</td><td class="ok">✓</td></tr>
+    <tr><td>Velocidad del tornillo ω</td><td>6.56 rad/s</td><td>6.56 rad/s</td><td class="ok">✓</td></tr>
+    <tr><td>Altura h</td><td>0.198 m</td><td>0.198 m</td><td class="ok">✓</td></tr>
+    <tr><td>Velocidad de subida v</td><td>5.5 mm/s</td><td>5.5 mm/s</td><td class="ok">✓</td></tr>
+  </table>
+  <p class="sub rise">Ritmo creíble de gato manual (<span class="key">4 a 5 mm/s</span>) y retención total al soltar: <b>el modelo cierra</b>.</p>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">14</span></div>
+</div></section>
+
+<!-- 15 · CIERRE -->
+<section class="slide"><div class="sheet closing">
+  <div class="thanks rise">Gracias.</div>
+  <div class="q rise">¿Preguntas?</div>
+  <div class="cover-cta rise">
+    <a class="btn solid" href="gemelo.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>Ver el Gemelo Digital en vivo</a>
+  </div>
+  <div class="cover-meta rise"><span>Modelado y Simulación</span><span>Universidad Popular del Cesar</span><span>Josheph Martinez · Oscar Duque</span></div>
+  <div class="folio"><span>MODELADO Y SIMULACIÓN · INGENIERÍA DE SISTEMAS</span><span class="n">15</span></div>
+</div></section>
+
+</main>
+
+<footer class="navbar">
+  <button class="btn ghost" onclick="prev()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4M11 5l-7 7 7 7"/></svg>Anterior</button>
+  <div class="dots" id="dots"></div>
+  <span class="hint">Flechas o espacio para navegar</span>
+  <button class="btn" onclick="next()">Siguiente<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M13 5l7 7-7 7"/></svg></button>
+</footer>
+
+<script src="js/slides.js?v=3"></script>
+</body>
+</html>
