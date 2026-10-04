@@ -19,8 +19,19 @@ function show(i){
   const d = document.getElementById('dots'); d.innerHTML='';
   S.forEach((_,k)=>{ const b=document.createElement('button'); if(k===cur)b.className='on';
     b.setAttribute('aria-label','Ir a la diapositiva '+(k+1)); b.onclick=()=>show(k); d.appendChild(b); });
+  armPlaceholders(S[cur]);
 }
 function next(){ show(cur+1); } function prev(){ show(cur-1); }
+function armPlaceholders(scope){
+  scope.querySelectorAll('img[data-ph]').forEach(img=>{
+    const done=()=>{ if(img.naturalWidth>0) return;
+      const [src,label]=img.getAttribute('data-ph').split('|');
+      const d=document.createElement('div'); d.className='imgph';
+      d.innerHTML='Falta la imagen: guarda aquí <b>'+src+'</b><br>'+label;
+      img.replaceWith(d); };
+    if(img.complete) done(); else { img.addEventListener('load',done); img.addEventListener('error',done); }
+  });
+}
 document.addEventListener('keydown', e=>{
   if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); next(); }
   else if(e.key==='ArrowLeft'){ e.preventDefault(); prev(); }

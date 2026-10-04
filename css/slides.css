@@ -155,7 +155,15 @@ h2 .q{color:var(--ink-2);font-weight:500}
 .dfb{display:flex;gap:24px;margin-top:14px;min-width:640px;color:var(--ink-2);font-size:13px}
 .dfb b{color:var(--ink)}
 
-/* scopes */
+/* figuras de evidencia */
+.fig{margin:22px 0 0;border:1px solid var(--line);border-radius:var(--radius);background:#050A19;padding:16px}
+.fig img{width:100%;height:auto;display:block;border-radius:8px}
+.fig figcaption{color:var(--ink-2);font-size:13.5px;line-height:1.6;margin:12px 4px 2px}
+.fig figcaption b{color:var(--ink)}
+.scope img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
+.imgph{border:1px dashed var(--line);border-radius:10px;padding:26px 18px;color:var(--ink-2);
+  font-size:13.5px;line-height:1.6;text-align:center;background:var(--panel-2)}
+.imgph b{color:var(--warm)}
 .scopes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
 .scope{border:1px solid var(--line);border-radius:12px;background:#050A19;padding:16px}
 .scope h3{font-family:var(--font-d);font-size:13px;letter-spacing:.04em;margin:0 0 4px}
